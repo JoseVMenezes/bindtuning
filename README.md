@@ -24,5 +24,5 @@ Challenge 2 - HTML/CSS:
   - Design: I based my design in the original HackerNews page, due to its simple and direct navigation. The HackerNews' logo with the white border was the basis for the menu's 'card-like' design.
   - UX & UI design: Although I appreciate the HackerNews page's simplicity, the user could experience a more pleasant and visually exciting visit on the website. So, the content and navigation remain the same, but the UI is enhanced (ex.: small icons instead of words).
   - Login: In the original HackerNews page, when the user clicks on 'login', it opens a new page. In my version I included the login forms in the same page.
-  - Development: For this challenge, I had a mobile-first approach.
+  - Development: mobile-first approach, developed from scratch in HTML, CSS and javascript(jQuery).
   - Frameworks: no frameworks were used.
