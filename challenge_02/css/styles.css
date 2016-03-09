@@ -1,0 +1,626 @@
+
+/* INDEX:
+
+    1 - General
+    2 - Header
+    3 - Main
+    4 - Footer
+    5 - Media queries
+
+*/
+
+
+/*----- 1 - GENERAL ------------*/
+@font-face {
+	font-family: "metrophobic";
+  	src: url("../font/Metrophobic.ttf");
+  	src: url("../font/Metrophobic.woff");
+}
+
+body {
+	font-family: "metrophobic", sans-serif;
+}
+body div, header, nav {
+	box-sizing: border-box;
+}
+body .container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+a {	text-decoration: none; }
+em { font-style: italic; }
+
+.orange { background-color: rgb(255,78,0); }
+
+.limits {
+	position: absolute;
+    width: 100%;
+    border: 10px solid white;
+}
+
+
+/*----- 2 - HEADER ------------*/
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 10px solid white;
+    pointer-events: none;
+    z-index: 2;
+}
+nav {
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    padding: 15px 20px;
+    box-shadow: 0px 10px 10px -10px black;
+
+    font-size: 13px;
+    color: white;
+    letter-spacing: 1px;
+    pointer-events: all;
+}
+.logo {
+	position: absolute;
+	top: -2px;
+	left: -17px;
+    width: 35px;
+    height: 35px;
+    margin-left: 50%;
+	border: 1.5px solid white;
+    background: rgb(255,78,0);
+    z-index: 3;
+
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.logo.menu-open {
+	top: 10px;
+	left: -30px;
+	width: 60px;
+	height: 60px;
+	border: 3px solid white;
+}
+.logo .gradient {
+    display: none;
+}
+.logo .img {
+    position: relative;
+	width: 100%;
+	height: 100%;
+
+	background-image: url(../imgs/logo.png);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.burger {
+    width: 50px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    font-size: 12px;
+    text-align: center;
+    line-height: 28px;
+    cursor: pointer;
+}
+.menu {
+	display: none;
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 100px 0 50px 0;
+    border: 10px solid white;
+    background-color: rgba(255,78,0,0.95);
+    text-align: center;
+    z-index: 1;
+}
+.menu .close {
+	position: absolute;
+    top: 15px;
+    left: 20px;
+    width: 30px;
+    height: 30px;
+    padding: 7px;
+    border: 1px solid white;
+    cursor: pointer;
+}
+.menu .close .stroke {
+	position: absolute;
+    top: 0;
+    left: 6px;
+    width: 2px;
+    height: 100%;
+    background-color: white;
+}
+.menu .close .stroke:first-child {
+	-webkit-transform: skewX(45deg);
+    -ms-transform: skewX(45deg);
+    transform: skewX(45deg);
+}
+.menu .close .stroke:last-child {
+	-webkit-transform: skewX(-45deg);
+    -ms-transform: skewX(-45deg);
+    transform: skewX(-45deg);
+}
+.menu ul {
+    height: 100%;
+    overflow-y: auto;
+}
+.menu ul li {
+	padding: 10px 0;
+}
+.menu ul li a {
+	color: white;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.login {
+	position: absolute;
+	top: 0;
+	right: 0;
+	line-height: 30px;
+    cursor: pointer;
+    z-index: 2;
+
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.login.menu-open {
+    top: 10px;
+    right: 10px;
+}
+
+.login-forms {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: 0px;
+    background-color: beige;
+    border-style: solid;
+    border-color: rgb(255,78,0);
+    border-width: 0px 10px;
+    box-shadow: 0px 10px 10px -10px black;
+    font-size: 12px;
+    overflow: hidden;
+
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.login-forms.login-open {
+    top: 60px;
+    height: 200px;
+    border-width: 0px 10px 10px 10px;
+}
+.login-forms .table {
+    display: table;
+    width: 100%;
+}
+.login-forms .table .cell {
+    display: table-cell;
+    width: 50%;
+    padding: 15px;
+}
+.login-forms .table .cell:first-child {
+    border-right: 1px solid rgb(255,78,0);
+}
+.login-forms span {
+    display: block;
+    margin-bottom: 10px;
+    color: black;
+}
+.login-forms input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px 7px;
+    box-sizing: border-box;
+}
+.login-forms input[type="submit"] {
+    margin-bottom: 20px;
+    outline: none;
+    border: 1px solid white;
+    color: white;
+    font-family: "metrophobic";
+    font-size: 12px;
+    letter-spacing: 1px;
+    box-shadow: 0px 6px 6px -4px grey;
+    cursor: pointer;
+}
+.login-forms a {
+    border-bottom: 1px solid rgb(255,78,0);
+}
+
+.search {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    background-color: rgba(255,78,0,0.75);
+    pointer-events: all;
+    z-index: 1;
+}
+.search .txt {
+	outline: none;
+    width: 200px;
+    height: 30px;
+    padding: 0 8px;
+    box-sizing: border-box;
+}
+.search .button {
+	outline: none;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    border: 1px solid white;
+    cursor: pointer;
+
+    background-image: url(../imgs/search.png);
+    background-size: 85%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    -webkit-transition:  all 0.3s;
+    transition:  all 0.3s;
+}
+
+
+/*----- 3 - MAIN ------------*/
+.main {
+    position: relative;
+    width: 100%;
+    padding: 60px 0 0 0;
+}
+.main .table {
+    display: table;
+    width: 100%;
+    background-color: beige;
+}
+.main .table .row {
+    display: table-row;
+    width: 100%;
+}
+.main .table .row .cell {
+    display: table-cell;
+}
+.main .table .row .cell:first-child {
+    width: 45px;
+    vertical-align: middle;
+    text-align: center;
+    padding: 8px;
+}
+.main .table .row .cell:first-child .number {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 6px 4px;
+    font-size: 14px;
+    color: white;
+    border: 1px solid white;
+    cursor: default;
+}
+.main .table .row .cell:last-child {
+    font-size: 12px;
+    padding: 15px 12px 15px 15px;
+    border-bottom: 1px solid rgb(255,78,0);
+}
+.main .table .row .cell:last-child div {
+    display: inline-block;
+    margin-right: 5px;
+    color: grey;
+    cursor: pointer;
+}
+.title {
+    display: inline !important;
+    margin-right: 15px!important;
+    font-size: 14px;
+    color: black !important;
+    line-height: 16px;
+}
+.upvote .button {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    margin-right: 2px !important;
+}
+.upvote .button span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 5px 9px 5px;
+    border-color: transparent transparent #23d404 transparent;
+}
+.comments span {
+    display: inline-block;
+    width: 12px;
+    height: 10px;
+    margin-right: 4px;
+    background-image: url(../imgs/comments.png);
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+.space {
+    display: block;
+    height: 10px;
+}
+.source span {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    margin-right: 3px;
+}
+.author div {
+    position: relative;
+    width: 15px;
+    height: 10px;
+    margin-right: 0px !important;
+}
+.author div .line {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 6px;
+    height: 1px;
+    background-color: black;
+}
+.author div .pen {
+    position: absolute;
+    right: 2px;
+    bottom: 0;
+    width: 2px;
+    height: 100%;
+    border-bottom: 3px solid black;
+    box-sizing: border-box;
+    -webkit-transform: skewX(-45deg);
+    -ms-transform: skewX(-45deg);
+    transform: skewX(-45deg);
+}
+.date div {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    margin-right: 1px !important;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+.date .clock_hand {
+    position: absolute;
+    top: 1px;
+    left: 5px;
+    width: 1px;
+    height: 4px;
+    background-color: black;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+#more .cell:last-child {
+    padding: 15px 15px 40px 15px;
+    border-bottom: 0;
+}
+#more .button {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 14px;
+    color: white;
+    text-align: center;
+    border: 1px solid white;
+    box-shadow: 0px 6px 6px -4px grey;
+    cursor: pointer;
+
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+
+
+/*----- 4 - FOOTER ------------*/
+footer {
+    position: relative;
+    padding: 20px 20px 75px 20px;
+    text-align: center;
+}
+footer a { color: white; }
+footer .applications {
+    max-width: 320px;
+    margin: 0 auto 20px auto;
+    padding: 10px;
+    border: 1px solid white;
+    box-shadow: 0px 6px 6px -5px black;
+    font-size: 14px;
+    line-height: 17px;
+
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.footer-menu ul li {
+    display: inline-block;
+    margin-bottom: 5px;
+    padding: 0 10px 0 4px;
+    border-right: 1px solid white;
+    font-size: 12px;
+}
+.footer-menu ul li:last-child {
+    border-right: 0;
+}
+.signature {
+    position: absolute;
+    width: 100%;
+    bottom: 7px;
+    right: 0;
+    text-align: center;
+    font-size: 10px;
+}
+.signature a {
+    color: black;
+}
+
+
+
+
+/*----- 5 - MEDIA QUERIES ------------*/
+@media only screen and (min-width: 750px) {
+
+    .burger, .menu .close { display: none; }
+    
+    body { background-color: darkred; }
+    
+    .limits {
+        height: 100%;
+        border: none;
+        overflow-y: auto;
+        -webkit-background: linear-gradient(to bottom right, orangered 30%, black 105%);
+        -moz-background: linear-gradient(to bottom right, orangered 30%, black 105%);
+        -o-background: linear-gradient(to bottom right, orangered 30%, black 105%);
+        background: linear-gradient(to bottom right, orangered 30%, black 105%);
+    }
+    .limits .pattern {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(../imgs/pattern.gif);
+        background-repeat: repeat;
+        background-size: 20px;
+        background-position: center;
+        opacity: 0.1;
+        pointer-events: none;
+    }
+
+    header {
+        top: 20px;
+        left: 20px;
+        width: 300px;
+        height: 90%;
+        max-height: 500px;
+        box-shadow: 0px 0px 25px -5px black;
+    }
+    nav {
+        position: relative;
+        height: 100%;
+        box-shadow: none;
+    }
+    .logo {
+        top: 10px;
+        left: -35px;
+        width: 70px;
+        height: 70px;
+        border: 3px solid white;
+    }
+    .logo .gradient {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        -webkit-background: linear-gradient(to bottom right, orange, transparent 60%);
+        -moz-background: linear-gradient(to bottom right, orange, transparent 60%);
+        -o-background: linear-gradient(to bottom right, orange, transparent 60%);
+        background: linear-gradient(to bottom right, orange, transparent 60%);
+        
+        opacity: 0;
+
+        -webkit-transition: all 1s;
+        transition: all 1s;
+    }
+    .menu {
+        display: block;
+        position: relative;
+        padding: 110px 0 50px 0;
+        border:none;
+        z-index: 0;
+    }
+    .menu ul li a:hover {
+        border-bottom: 2px solid white;
+        font-size: 16px;
+    }
+    .menu ul li.selected a{
+        font-weight: bold;
+        color: black;
+        border-bottom: 2px solid black;
+    }
+    .login-forms {
+        position: absolute;
+        border: none;
+    }
+    .login-forms.login-open {
+        height: 350px;
+    }
+    .login-forms .table { display: block; }
+    .login-forms .table .cell {
+        display: block;
+        width: 100%;
+    }
+    .login-forms .table .cell:first-child {
+        border-right: none;
+        border-bottom: 1px solid rgb(255,78,0);
+    }
+    .login-forms input[type="submit"] {
+        margin-bottom: 10px;
+    }
+    .login-forms a {
+        border-bottom: 0px solid rgb(255,78,0);
+    }
+
+    .main {
+        max-width: 1090px;
+        padding: 20px 20px 0 330px;
+    }
+
+    footer {
+        max-width: 700px;
+        margin: 0 20px 0 330px;
+    }
+
+    .login:hover, 
+    .main .table .row .cell:last-child div:hover,
+    .footer-menu a:hover,
+    .signature a:hover {
+        text-decoration: underline;
+    }
+
+    .logo:hover, 
+    .search .button:hover, 
+    #more .button:hover, 
+    footer .applications:hover {
+        text-decoration: none;
+        -webkit-transform: scale(0.95,0.95);
+        -ms-transform: scale(0.95,0.95);
+        transform: scale(0.95,0.95);
+    }
+    .logo:hover .gradient {
+        opacity: 1;
+    }
+
+}
+
+@media only screen and (min-width: 750px) and (max-height: 550px) {
+
+    .login-forms.login-open {
+        height: 70%;
+        max-height: 350px;
+        overflow-y:auto;
+    }
+
+}
+
