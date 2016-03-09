@@ -3,7 +3,9 @@ BindTuning - Frontend Challenge
 
 
 Challenge 1 - javascript:
+
   www.josevmenezes.com/bindtuning/challenge_01
+  
   Connect to HackerNews webpage through an API, get the data and build a webpage with all those items. Finally, add infinite scroll.
   
   - I connected to HackerNews through an API, import.io, and got the data from HN in a JSON file. However, the data wasn't clearly organized. So I decided to use Google dev tools, and get the entire html, css and javascript -aswell as images- just as it was presented there.
@@ -14,7 +16,9 @@ Challenge 1 - javascript:
 
 
 Challenge 2 - HTML/CSS:
+
   www.josevmenezes.com/bindtuning/challenge_02
+  
   Redesign HackerNews responsive webpage using HTML/CSS.
   
   - Design: I based my design in the original HackerNews page, due to its simple and direct navigation. The HackerNews' logo with the white border was the basis for the menu's 'card-like' design.
